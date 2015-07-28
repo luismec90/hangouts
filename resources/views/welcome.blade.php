@@ -45,10 +45,9 @@
             <div class="slide-banner-left col-md-8">
                 <span> </span>
 
-                <h1>Lorem ipsum dolor sit amet</h1>
+                <h1>Bienvenido!</h1>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. </p>
+                <p>Ahora podr&aacute;s crear salas de chat o unirte a alguna sala disponible basados en t&oacute;picos de discusi&oacute;n</p>
 
                 <p><a class="btn btn-primary btn-lg b-btn" href="#rooms"> Entrar</a></p>
             </div>
@@ -84,7 +83,7 @@
             <form>
                 <div class="col-md-6 contact-text-box">
                     <div>
-                        <span>Name<label>*</label></span>
+                        <span>Nombre<label>*</label></span>
                         <input type="text" required/>
                     </div>
                     <div>
@@ -94,10 +93,10 @@
                 </div>
                 <div class="col-md-6 contact-text-textarea">
                     <div>
-                        <span>Message<label>*</label></span>
+                        <span>Mensaje<label>*</label></span>
                         <textarea> </textarea>
                     </div>
-                    <input class="btn btn-danger btn-lg" type="submit" Value="send"/>
+                    <input class="btn btn-danger btn-lg" type="submit" Value="Enviar"/>
                 </div>
             </form>
         </div>
@@ -141,9 +140,9 @@
                     <select id="topic" class="form-control" required="1" name="quizTypeID">
                         <option value="">Seleccionar</option>
                         <option>Idiomas</option>
-                        <option>Política</option>
+                        <option>Pol&iacute;tica</option>
                         <option>Deportes</option>
-                        <option>Tecnología</option>
+                        <option>Tecnolog&iacute;a</option>
                         <option>Otros</option>
                     </select>
                 </div>
