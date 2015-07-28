@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/api/groups', 'WelcomeController@saveGroups');
+Route::get('/api/groups', 'WelcomeController@listGroups');
