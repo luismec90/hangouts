@@ -56,16 +56,14 @@ class WelcomeController extends Controller
             if (is_null($participant)) {
                 $participant = new Participant;
                 $participant->code = $participantTmp['id'];
-                $participant->group_id = $group->id;
                 $participant->name = $participantTmp['displayName'];
                 $participant->image = $participantTmp['image']['url'];
-                $participant->active = 1;
-                $participant->save();
-            } else if ($participant->active == 0) {
-                $participant->group_id = $group->id;
-                $participant->active = 1;
-                $participant->save();
             }
+
+            $participant->group_id = $group->id;
+            $participant->active = 1;
+            $participant->save();
+
 
             array_push($participantsArray, $participant->id);
 
