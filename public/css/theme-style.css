@@ -20,14 +20,14 @@ body a{
 	-o-transition:0.5s all;
 }
 .bg{
-	background:url(../images/head-bg.jpg) no-repeat 0px 0px;
+	background:url(../images/bg.jpg) no-repeat 0px 0px;
 }
 /*----start-header----*/
 .header{
 	padding: 1em 0;
 }
 .logo{
-	margin-top: 1em;
+	margin-top: 0em;
 }
 .header-right{
 	color:#CAD1DB;
@@ -87,7 +87,7 @@ body a{
 	background: #3D4B60;
 }
 .slide-banner{
-	padding: 3em 0 3em;
+	padding: 0em 0 3em;
 }
 /*----//End-slide-banner---*/
 /*----start-grids----*/
@@ -1659,3 +1659,39 @@ img.mfp-img {
 }
 /*----//End-media-quries-for-320px-Laptops-----*/
 /*---- //End-Responmsive-Media-quries----*/
+
+#texto-logo{
+	color: #FFF;
+	font-size: 3.5em;
+	font-family: 'Enriqueta', serif;
+}
+#texto-logo:hover{
+text-decoration: none;
+}
+
+
+.free-slot{
+	-moz-box-shadow: 0 0 0 1px #d8d8d8;
+	-webkit-box-shadow: 0 0 0 1px #d8d8d8;
+	box-shadow: 0 0 0 1px #d8d8d8;
+	border-collapse: separate;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+	background-color: #eee;
+	background-size: cover;
+}
+
+.slot{
+	float: left;
+	margin-right: 5px;
+}
+.link-group{
+	overflow:scroll;
+}

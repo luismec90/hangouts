@@ -1,12 +1,7 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>Flat-Mate Website Template | Home :: w3layouts</title>
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
@@ -31,7 +26,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="col-md-6">
                     <!----start-logo---->
                     <div class="well logo">
-                        <a href="#"><img src="/images/logo.png" title="Flatmate"/></a>
+                        <a href="#" id="texto-logo"><img src="/images/logo.png" title="Flatmate" width="100px"/> Public Hangouts</a>
                     </div>
                     <!----//End-logo---->
                 </div>
@@ -68,23 +63,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!----start-top-grids---->
 <div class="top-grids">
     <div class="container">
-        <div class="top-grid-left col-md-3">
-            <a href="#"><img src="images/icon2.png" class="img-responsive" title="doc"/></a>
-        </div>
-        <div class="top-grid-center col-md-7">
-            <h2>Lorem ipsum dolor sit amet</h2>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
+        <div class="top-grid-center">
+            <a id="create-room" class="btn btn-warning pull-right">Crear Sala</a>
+            <h2>Salas Disponibles</h2>
+
+            <div id="div-table"></div>
         </div>
-        <div class="top-grid-right col-md-2">
-            <ul>
-                <li><a href="#"><span class="icon1"> </span></a></li>
-                <li><a href="#"><span class="icon2"> </span></a></li>
-                <div class="clearfix"></div>
-            </ul>
-        </div>
+
     </div>
 </div>
 <!----//End-top-grids---->
@@ -125,7 +111,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="row">
             <div class="col-md-6 footer-left">
                 <ul>
-                    <li><a href="#"><img src="images/footer-logo.png" title="logo"/></a></li>
+                    <li><a href="#"><img src="images/footer-logo.png" title="logo" /></a></li>
                     <li><p>Template by <a href="http://w3layouts.com/">W3layouts</a></p></li>
                 </ul>
             </div>
@@ -141,9 +127,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!----//End-footer--->
 <!----//End-container---->
 
+
+<div class="modal fade" id="modal-create-room">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Crear Sala</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name">Elige el tema que deseas tratar en la sala</label>
+                    <select id="topic" class="form-control" required="1" name="quizTypeID">
+                        <option value="">Seleccionar</option>
+                        <option>Idiomas</option>
+                        <option>Política</option>
+                        <option>Deportes</option>
+                        <option>Tecnología</option>
+                        <option>Otros</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <a id="create-hangout" href="#" target="_blank" type="button" class="btn btn-primary">Crear</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
 <!----requred-js-files---->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/chat.js"></script>
 <!----//requred-js-files---->
 </body>
 </html>
