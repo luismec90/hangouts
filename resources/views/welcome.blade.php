@@ -10,7 +10,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/fav-icon.png"/>
 
     <!----webfonts---->
-    <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800"
+          rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Fauna+One" rel="stylesheet">
     <!----//webfonts---->
 
@@ -49,9 +50,16 @@
                 <h1>Bienvenido!</h1>
 
                 <p>Ahora podr&aacute;s crear salas de chat o unirte a alguna sala disponible basados en t&oacute;picos
-                    de discusi&oacute;n, todo esto soportado por <a href="http://www.google.com/+/learnmore/hangouts/" style="color:#fff;" target="_blank">Google Hangouts</a></p>
+                    de discusi&oacute;n, todo esto soportado por <a href="http://www.google.com/+/learnmore/hangouts/"
+                                                                    style="color:#fff;" target="_blank">Google
+                        Hangouts</a></p>
 
-                <p><a id="entry" class="btn btn-primary btn-lg b-btn" href="#rooms"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> <span clas="text"> Entrar</span></a></p>
+                <p>
+                    <a id="entry" class="btn btn-primary btn-lg b-btn" href="#rooms">
+                        <span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
+                       Entrar
+                    </a>
+                </p>
             </div>
             <div class="well slide-banner-right col-md-4">
                 <img src="images/slider-img.png" class="img-responsive" alt=""/>
