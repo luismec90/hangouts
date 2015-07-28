@@ -22,7 +22,7 @@ class WelcomeController extends Controller
             $mail->to('luismec90@gmail.com')->subject('Public Hangouts: Contacto');
         });
 
-
+        return Redirect::back();
     }
 
     public function saveGroups()
