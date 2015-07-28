@@ -132,8 +132,7 @@
             </div>
             <div class="col-md-6 footer-right">
                 <ul>
-                    <li><a class="twitter" href="#"><span> </span></a></li>
-                    <li><a class="facebook" href="#"><span> </span></a></li>
+                    <li><a class="facebook" href="https://www.facebook.com/publichangouts" target="_blank"><span> </span></a></li>
                 </ul>
             </div>
         </div>

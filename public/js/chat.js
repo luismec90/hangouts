@@ -49,7 +49,7 @@ function loadGroups() {
 function renderData(groups) {
     var table = "<table class='table table-hover'><thead><td>Tema</td><td>Participantes</td><td>Opciones</td></thead>";
     if(!groups.length){
-        $("#div-table").html("No hay ninguna sala de chat activa, te invitamos a <a id='create-room-2' href='#'>crear una</a></h4>");
+        $("#div-table").html("<h3>No hay ninguna sala de chat activa, te invitamos a <a id='create-room-2'>crear una</a></h3>");
     }else {
         $.each(groups, function (index, group) {
             if (group.topic === null) {

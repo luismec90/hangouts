@@ -2027,6 +2027,9 @@ img.mfp-img {
     overflow: scroll;
 }
 
+#create-room-2{
+    cursor: pointer;
+}
 #entry {
     border-radius: 2px;
     background: #53a93f;
