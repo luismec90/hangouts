@@ -10,8 +10,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/fav-icon.png"/>
 
     <!----webfonts---->
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fauna+One" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Fauna+One" rel="stylesheet">
     <!----//webfonts---->
 
 </head>
