@@ -59,6 +59,11 @@
                         <i class="glyphicon glyphicon-facetime-video" aria-hidden="true"></i>
                        Entrar
                     </a>
+
+                    <a id="create" class="btn btn-primary btn-lg b-btn">
+                        <i class="glyphicon glyphicon-facetime-video" aria-hidden="true"></i>
+                        Crear
+                    </a>
                 </p>
             </div>
             <div class="well slide-banner-right col-md-4 hidden-sm">
@@ -77,7 +82,7 @@
             <a id="create-room" class="btn btn-warning pull-right">Crear Sala</a>
 
             <h2>Salas Disponibles</h2>
-
+            <hr>
             <div id="div-table"></div>
         </div>
 
@@ -142,7 +147,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                 <h4 class="modal-title">Crear Sala</h4>
             </div>
             <div class="modal-body">
@@ -150,11 +155,14 @@
                     <label for="name">Elige el tema que deseas tratar en la sala</label>
                     <select id="topic" class="form-control" required="1" name="quizTypeID">
                         <option value="">Seleccionar</option>
+                        <option>Abierto (Cualquier tema)</option>
                         <option>Idiomas</option>
-                        <option>Pol&iacute;tica</option>
+                        <option>Arte</option>
                         <option>Deportes</option>
-                        <option>Tecnolog&iacute;a</option>
+                        <option>M&uacute;sica</option>
                         <option>Otros</option>
+                        <option>Pol&iacute;tica</option>
+                        <option>Tecnolog&iacute;a</option>
                     </select>
                 </div>
             </div>

@@ -2031,6 +2031,7 @@ img.mfp-img {
     border-radius: 2px;
     background: #53a93f;
 }
-#entry .glyphicon{
-    bottom:-10px;
+#create {
+    border-radius: 2px;
+    background: #F6C333;
 }
