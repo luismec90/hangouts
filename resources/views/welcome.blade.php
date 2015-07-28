@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Flat-Mate Website Template | Home :: w3layouts</title>
+    <title>Public Hangouts | Chat | Video chat </title>
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
     <link href="css/theme-style.css" rel='stylesheet' type='text/css'/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="images/fav-icon.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/fav-icon.png"/>
 
     <!----webfonts---->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -50,7 +50,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. </p>
 
-                <p><a class="btn btn-primary btn-lg b-btn" href="#"> Read More</a></p>
+                <p><a class="btn btn-primary btn-lg b-btn" href="#rooms"> Entrar</a></p>
             </div>
             <div class="well slide-banner-right col-md-4">
                 <img src="images/slider-img.png" class="img-responsive" alt=""/>
@@ -61,7 +61,7 @@
     </div>
 </div>
 <!----start-top-grids---->
-<div class="top-grids">
+<div id="rooms" class="top-grids">
     <div class="container">
 
         <div class="top-grid-center">
@@ -111,8 +111,8 @@
         <div class="row">
             <div class="col-md-6 footer-left">
                 <ul>
-                    <li><a href="#"><img src="images/footer-logo.png" title="logo" /></a></li>
-                    <li><p>Template by <a href="http://w3layouts.com/">W3layouts</a></p></li>
+                    <li><a href="#"><img src="images/logo.png" title="logo" width="30px" /></a></li>
+                    <li><p>Powered by <a href="https://luisfer.co" target="_blank">Luis F. Montoya</a></p></li>
                 </ul>
             </div>
             <div class="col-md-6 footer-right">
