@@ -159,9 +159,9 @@
                         <option>Arte</option>
                         <option>Deportes</option>
                         <option>M&uacute;sica</option>
-                        <option>Otros</option>
                         <option>Pol&iacute;tica</option>
                         <option>Tecnolog&iacute;a</option>
+                        <option>Otros</option>
                     </select>
                 </div>
             </div>
