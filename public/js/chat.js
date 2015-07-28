@@ -25,7 +25,7 @@ $(function () {
 
 function loadGroups() {
     $.ajax({
-        url: "https://luisfer.co/api/groups",
+        url: "https://public-hangouts.com/api/groups",
         method: "get",
         success: function (groups) {
             renderData(groups);

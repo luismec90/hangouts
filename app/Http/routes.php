@@ -13,3 +13,7 @@
 
 Route::post('/api/groups', 'WelcomeController@saveGroups');
 Route::get('/api/groups', 'WelcomeController@listGroups');
+
+Route::get('/', function () {
+    return view('welcome');
+});
