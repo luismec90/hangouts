@@ -64,7 +64,6 @@ class WelcomeController extends Controller
             $participant->active = 1;
             $participant->save();
 
-
             array_push($participantsArray, $participant->id);
 
         }
