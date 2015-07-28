@@ -26,7 +26,8 @@
                 <div class="col-md-6">
                     <!----start-logo---->
                     <div class="well logo">
-                        <a href="#" id="texto-logo"><img src="/images/logo.png" title="Flatmate" width="100px"/> Public Hangouts</a>
+                        <a href="#" id="texto-logo"><img src="/images/logo.png" title="Flatmate" width="100px"/> Public
+                            Hangouts</a>
                     </div>
                     <!----//End-logo---->
                 </div>
@@ -47,7 +48,8 @@
 
                 <h1>Bienvenido!</h1>
 
-                <p>Ahora podr&aacute;s crear salas de chat o unirte a alguna sala disponible basados en t&oacute;picos de discusi&oacute;n</p>
+                <p>Ahora podr&aacute;s crear salas de chat o unirte a alguna sala disponible basados en t&oacute;picos
+                    de discusi&oacute;n</p>
 
                 <p><a class="btn btn-primary btn-lg b-btn" href="#rooms"> Entrar</a></p>
             </div>
@@ -65,6 +67,7 @@
 
         <div class="top-grid-center">
             <a id="create-room" class="btn btn-warning pull-right">Crear Sala</a>
+
             <h2>Salas Disponibles</h2>
 
             <div id="div-table"></div>
@@ -110,7 +113,7 @@
         <div class="row">
             <div class="col-md-6 footer-left">
                 <ul>
-                    <li><a href="#"><img src="images/logo.png" title="logo" width="30px" /></a></li>
+                    <li><a href="#"><img src="images/logo.png" title="logo" width="30px"/></a></li>
                     <li><p>Powered by <a href="https://luisfer.co" target="_blank">Luis F. Montoya</a></p></li>
                 </ul>
             </div>
@@ -162,6 +165,23 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/chat.js"></script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-42717766-7', 'auto');
+    ga('send', 'pageview');
+
+</script>
 <!----//requred-js-files---->
 </body>
 </html>
