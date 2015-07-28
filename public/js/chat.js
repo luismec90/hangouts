@@ -11,7 +11,7 @@ $(function () {
 
     $("#topic").change(function () {
         if ($(this).val() != "") {
-            var url = "https://plus.google.com/hangouts/_/?gid=514399285753&gd=" + $(this).val();
+            var url = "https://plus.google.com/hangouts/_/?gid=234021961885&gd=" + $(this).val();
             $("#create-hangout").attr("href", url).removeAttr("disabled");
         } else {
             $("#create-hangout").attr("href", "").attr("disabled", "disabled");
