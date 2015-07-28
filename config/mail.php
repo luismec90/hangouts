@@ -54,7 +54,8 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => array('address' => 'soporte.ticademia@gmail.com', 'name' => 'public-hangouts.com'),
+
 
     /*
     |--------------------------------------------------------------------------

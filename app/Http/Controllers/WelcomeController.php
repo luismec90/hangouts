@@ -1,15 +1,29 @@
 <?php namespace App\Http\Controllers;
 
+use App;
 use App\Group;
 use App\Participant;
+use File;
+use Mail;
 use Redirect;
 use Request;
-use App;
-use Mail;
-use File;
 
 class WelcomeController extends Controller
 {
+
+    public function contact()
+    {
+        $name = Request::get('name');
+        $email = Request::get('email');
+        $userMessage = Request::get('message');
+
+
+        Mail::send('emails.contact', compact('name', 'email', 'userMessage'), function ($mail) {
+            $mail->to('luismec90@gmail.com')->subject('Public Hangouts: Contacto');
+        });
+
+
+    }
 
     public function saveGroups()
     {

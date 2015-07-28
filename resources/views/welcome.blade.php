@@ -91,21 +91,21 @@
         <p><i> </i></p>
 
         <div class="row">
-            <form>
+            <form action="/contact" method="POST">
                 <div class="col-md-6 contact-text-box">
                     <div>
                         <span>Nombre<label>*</label></span>
-                        <input type="text" required/>
+                        <input type="text" name="name" required/>
                     </div>
                     <div>
                         <span>Email<label>*</label></span>
-                        <input type="text" required/>
+                        <input type="email" name="email" required/>
                     </div>
                 </div>
                 <div class="col-md-6 contact-text-textarea">
                     <div>
                         <span>Mensaje<label>*</label></span>
-                        <textarea> </textarea>
+                        <textarea name="message" required></textarea>
                     </div>
                     <input class="btn btn-danger btn-lg" type="submit" Value="Enviar"/>
                 </div>

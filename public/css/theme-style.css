@@ -405,7 +405,7 @@ body a {
     margin-left: 0.1em;
 }
 
-.contact input[type="text"], .contact textarea {
+.contact input[type="text"],.contact input[type="email"], .contact textarea {
     border-radius: 4px;
     font-family: 'Open Sans', sans-serif;
     outline: none;
