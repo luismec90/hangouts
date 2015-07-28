@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="Your App Name">
+        <Require feature="rpc"/>
+        <Require feature="views"/>
+    </ModulePrefs>
+
+    <Content type="html">
+        <![CDATA[
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+
+            <style>
+                body {
+                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    color: #fff;
+                    background: #181818;
+                }
+
+                header {
+                    background: #073648;
+                }
+
+                header > img {
+                    width: 140px;
+                    padding: 20px;
+                }
+
+                main {
+                    text-align: center;
+                }
+
+                h1 {
+                    margin: 40px 0 0;
+                }
+
+                ol {
+                    padding: 0;
+                }
+
+                .instruction {
+                    display: inline-block;
+                    margin: 20px;
+                }
+            </style>
+
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+            <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+
+            <script>
+
+                var listUsers = function () {
+                    var hangoutId = gapi.hangout.getHangoutId();
+                    var hangoutUrl = gapi.hangout.getHangoutUrl();
+                    var participants = gapi.hangout.getEnabledParticipants();
+                    var topic = gadgets.views.getParams()['appData'];
+
+                    var data = {
+                        hangoutId: hangoutId,
+                        hangoutUrl: hangoutUrl,
+                        participants: participants,
+                        topic:topic,
+                    };
+
+                    data = JSON.stringify(data);
+
+                    console.log("->",topic);
+
+
+                    var ajax = new XMLHttpRequest();
+                    ajax.open('POST', 'https://public-hangouts.com/api/groups');
+                    ajax.setRequestHeader('Content-type', 'application/json');
+                    ajax.send(data);
+                }
+
+                gapi.hangout.onApiReady.add(function () {
+                    gapi.hangout.onParticipantsRemoved.add(listUsers);
+                    listUsers();
+                });
+
+            </script>
+        </head>
+
+        <body>
+        </body>
+        </html>
+        ]]>
+    </Content>
+</Module>
