@@ -49,7 +49,7 @@
                 <h1>Bienvenido!</h1>
 
                 <p>Ahora podr&aacute;s crear salas de chat o unirte a alguna sala disponible basados en t&oacute;picos
-                    de discusi&oacute;n</p>
+                    de discusi&oacute;n, todo esto soportado por <a hrfe="http://www.google.com/+/learnmore/hangouts/" target="_blank">Google Hangouts</a></p>
 
                 <p><a class="btn btn-primary btn-lg b-btn" href="#rooms"> Entrar</a></p>
             </div>
