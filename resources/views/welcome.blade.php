@@ -56,13 +56,13 @@
 
                 <p>
                     <a id="entry" class="btn btn-primary btn-lg b-btn" href="#rooms">
-                        <span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
+                        <i class="glyphicon glyphicon-facetime-video" aria-hidden="true"></i>
                        Entrar
                     </a>
                 </p>
             </div>
-            <div class="well slide-banner-right col-md-4">
-                <img src="images/slider-img.png" class="img-responsive" alt=""/>
+            <div class="well slide-banner-right col-md-4 hidden-sm">
+                <img src="/images/slider-img.png" class="img-responsive" alt=""/>
             </div>
             <div class="clearfix"></div>
         </div>
