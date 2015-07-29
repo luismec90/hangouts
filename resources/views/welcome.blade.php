@@ -154,12 +154,13 @@
                     <label for="name">Elige el tema que deseas tratar en la sala</label>
                     <select id="topic" class="form-control" required="1" name="quizTypeID">
                         <option value="">Seleccionar</option>
-                        <option>Abierto (Cualquier tema)</option>
-                        <option>Idiomas</option>
+                        <option>Abierto (cualquier tema)</option>
                         <option>Arte</option>
+                        <option>Cine</option>
                         <option>Deportes</option>
+                        <option>Ingl&eacute;s</option>
                         <option>M&uacute;sica</option>
-                        <option>Pol&iacute;tica</option>
+                        <option>Portugu$&eacute;s</option>
                         <option>Tecnolog&iacute;a</option>
                         <option>Otros</option>
                     </select>
