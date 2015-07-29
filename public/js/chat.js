@@ -55,7 +55,7 @@ function renderData(groups) {
             if (group.topic === null) {
                 group.topic = "Otros";
             }
-            table += "<tr> <td class='col-xs-2'>" + group.topic + "</td><td class='col-xs-5'><a href='" + group.url + "?gid=234021961885' target='_blank' class='link-group'> " + renderParticipants(group.participants) + " </a></td> <td><a href='" + group.url + "?gid=514399285753' target='_blank' class='btn btn-primary'>Entrar</a></td></tr>"
+            table += "<tr> <td class='col-xs-2'>" + group.topic + "</td><td class='col-xs-5'><a href='" + group.url + "?gid=234021961885' target='_blank' class='link-group'> " + renderParticipants(group.participants) + " </a></td> <td><a href='" + group.url + "?gid=234021961885' target='_blank' class='btn btn-primary'>Entrar</a></td></tr>"
         });
         table += '<table>';
         $("#div-table").html(table);
