@@ -160,7 +160,7 @@
                         <option>Deportes</option>
                         <option>Ingl&eacute;s</option>
                         <option>M&uacute;sica</option>
-                        <option>Portugu$&eacute;s</option>
+                        <option>Portugu&eacute;s</option>
                         <option>Tecnolog&iacute;a</option>
                         <option>Otros</option>
                     </select>
