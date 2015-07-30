@@ -113,4 +113,9 @@ class WelcomeController extends Controller
         return $groups;
     }
 
+    public function channel($clientID=null)
+    {
+
+        return view('channel/index');
+    }
 }

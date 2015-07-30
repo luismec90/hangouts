@@ -6,6 +6,7 @@
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
     <link href="css/theme-style.css" rel='stylesheet' type='text/css'/>
+    <link href="/css/chat.css" rel='stylesheet' type='text/css'/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="/images/fav-icon.png"/>
 
