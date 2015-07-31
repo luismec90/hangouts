@@ -28,8 +28,7 @@
                 <div class="col-md-6">
                     <!----start-logo---->
                     <div class="well logo">
-                        <a href="#" id="texto-logo"><img src="/images/logo.png" title="Flatmate" width="100px"/> Public
-                            Hangouts</a>
+                        <a href="#" id="texto-logo"><img src="/images/logo.png" title="Flatmate" width="100px"/> Viig Freak</a>
                     </div>
                     <!----//End-logo---->
                 </div>
