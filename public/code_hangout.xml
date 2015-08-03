@@ -79,24 +79,14 @@
                     gapi.hangout.onParticipantsRemoved.add(listUsers);
                     listUsers();
 
-                });
-
-                $("#go-btn").click(function(){
-
-                    var command=$("#command").val();
-                    console.log(command);
-
-
-                    eval(command);
-
+                    var participants = gapi.hangout.getEnabledParticipants();
+                    console.log(participants);
                 });
 
             </script>
         </head>
 
         <body>
-        <input id="command" type="text">
-        <button id="go-btn">Go</button>
         </body>
         </html>
         ]]>
