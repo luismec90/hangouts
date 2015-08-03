@@ -33,7 +33,7 @@ class WelcomeController extends Controller
 
         $hangoutCode = Request::get('hangoutId');
         $url = Request::get('hangoutUrl');
-        $topic = Request::get('topic',"Abierto (Cualquier temas)");
+        $topic = Request::get('topic',"Abierto (cualquier tema)");
 
 
         //$hangoutCode =  $json->hangoutId;
