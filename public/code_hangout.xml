@@ -1,94 +1,329 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Module>
-    <ModulePrefs title="Your App Name">
-        <Require feature="rpc"/>
-        <Require feature="views"/>
-    </ModulePrefs>
+<!--
 
-    <Content type="html">
-        <![CDATA[
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8">
+ * Licensed under the Apache License, Version 2.0 (the "License"); you
+ * may not use this file except in compliance with the License. You
+ * may obtain a copy of the License at
 
-            <style>
-                body {
-                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                    color: #fff;
-                    background: #181818;
-                }
+ * http://www.apache.org/licenses/LICENSE-2.0
 
-                header {
-                    background: #073648;
-                }
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied. See the License for the specific language governing
+ * permissions and limitations under the License
+-->
 
-                header > img {
-                    width: 140px;
-                    padding: 20px;
-                }
+<!-- This example uses hangoutiframer.  See
+     http://hangoutiframer.appspot.com for further details. -->
 
-                main {
-                    text-align: center;
-                }
+<!-- Standard boilerplate to start hangouts.  Without these, your Hangout will not start. -->
+<script src="//hangoutsapi.talkgadget.google.com/talkgadget/apps/gadgets/js/rpc.js"></script>
+<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
-                h1 {
-                    margin: 40px 0 0;
-                }
+<body style="padding: 10px; background-color: white;">
 
-                ol {
-                    padding: 0;
-                }
+<h3>HangIn: Always on hangout for teams</h3>
 
-                .instruction {
-                    display: inline-block;
-                    margin: 20px;
-                }
-            </style>
+<div id="stepoutControls">
+    <button id="stepout">Jump Out</button>
+    <button id="stepin" style="display: none;">Jump In</button>
+</div>
 
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-            <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+<hr>
 
-            <script>
+    <div id="faceStatus"></div>
 
-                var listUsers = function () {
-                    var hangoutId = gapi.hangout.getHangoutId();
-                    var hangoutUrl = gapi.hangout.getHangoutUrl();
-                    var participants = gapi.hangout.getEnabledParticipants();
-                    var topic = gadgets.views.getParams()['appData'];
+    <video id="video"></video>
 
-                    var data = {
-                        hangoutId: hangoutId,
-                        hangoutUrl: hangoutUrl,
-                        participants: participants,
-                        topic:topic,
-                    };
+    <canvas id="snapshot"></canvas>
+    <canvas id="avatarcanvas" style="display:none"></canvas>
 
-                    data = JSON.stringify(data);
+    <script>
 
-                    console.log("->",topic);
+        // UI controls
+        var stepout = $('#stepout');
+        var stepin = $('#stepin');
 
 
-                    var ajax = new XMLHttpRequest();
-                    ajax.open('POST', 'https://public-hangouts.com/api/groups');
-                    ajax.setRequestHeader('Content-type', 'application/json');
-                    ajax.send(data);
-                }
+        /* Background Replacement */
 
-                gapi.hangout.onApiReady.add(function () {
-                    gapi.hangout.onParticipantsRemoved.add(listUsers);
-                    listUsers();
+        // resources
+        var backgroundImageUrl = 'http://www.gstatic.com/chat/apps/fx/v1.12/fx/config/backgrounds/mosaic.png';
+        var backgroundImage = gapi.hangout.av.effects.createImageResource(backgroundImageUrl);
+        var backgroundReplacement = null;
 
-                    var participants = gapi.hangout.getEnabledParticipants();
-                    console.log(participants);
-                });
+        var snapshotTimer = 0;
+        function takeSnapshot() {
+        // Get handles on the video and canvas elements
+        //var video = gapi.hangout.layout.getVideoCanvas();
+        var video = document.querySelector("video");
+        var canvas = document.querySelector('#snapshot');
+        // Get a handle on the 2d context of the canvas element
+        var context = canvas.getContext('2d');
+        // Define some vars required later
+        var w, h, ratio;
+        var streaming = false;
+        var width = 200;
+        var height = 0;
 
-            </script>
-        </head>
 
-        <body>
-        </body>
-        </html>
-        ]]>
-    </Content>
-</Module>
+        // create our own video stream
+        navigator.getMedia = ( navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia);
+
+        navigator.getMedia(
+        {
+        video: true,
+        audio: false
+        },
+        function(stream) {
+        if (navigator.mozGetUserMedia) {
+        video.mozSrcObject = stream;
+        } else {
+        var vendorURL = window.URL || window.webkitURL;
+        video.src = vendorURL.createObjectURL(stream);
+        }
+        video.play();
+        },
+        function(err) {
+        console.log("An error occured! " + err);
+        }
+        );
+
+        video.addEventListener('canplay', function(ev){
+        if (!streaming) {
+        height = video.videoHeight / (video.videoWidth/width);
+        video.setAttribute('width', width);
+        video.setAttribute('height', height);
+        canvas.setAttribute('width', width);
+        canvas.setAttribute('height', height);
+        streaming = true;
+        }
+        doSnapshot();
+        }, false);
+
+
+        function doSnapshot() {
+        $(video).hide();
+        $(canvas).hide();
+        context.fillRect(0, 0, width, height);
+        // Grab the image from the video
+        context.globalAlpha = 0.75;
+        context.drawImage(video, 0, 0, width, height);
+        // need to send to everyone else
+        var image = canvas.toDataURL("image/png");
+        gapi.hangout.av.setAvatar(
+        gapi.hangout.getLocalParticipantId(),
+        image
+        );
+        //gapi.hangout.data.sendMessage(image);
+        $(video).hide();
+        $(canvas).hide();
+        }
+        snapshotTimer = window.setInterval(function(){
+        if (streaming) {
+        doSnapshot();
+        }
+        }, 10000);
+        }
+
+        var status_urls = {}
+        var avatar_urls = {}
+
+        function showAvatarStatus(pid, status) {
+        if (status_urls[pid] && status_urls[pid][status]) {
+        return status_urls[pid][status];
+        }
+
+        var canvas = document.getElementById("avatarcanvas");
+        var context = canvas.getContext("2d");
+
+        var url;
+        if (avatar_urls[pid]) {
+        url = avatar_urls[pid];
+        } else {
+        url = gapi.hangout.av.getAvatar(pid);
+        }
+        if (!url) {
+        url = "https://lh3.googleusercontent.com/-8alR-lCxhLE/AAAAAAAAAAI/AAAAAAAAAAA/le7tT6BEJ44/s177-c/photo.jpg";
+        }
+        avatar_urls[pid] = url;
+
+        if (status) {
+        new_url = url;
+        }
+        else {
+        // greyed out
+        new_url = "http://dub.washington.edu/static/imgs/default-profile-pic.png";
+        }
+        gapi.hangout.av.setAvatar(pid, new_url);
+        return;
+
+        var img = new Image();
+        img.src = url;
+        img.onload = function() {
+        context.drawImage(img, 145, 145);
+        canvas.setAttribute('width', img.width);
+        canvas.setAttribute('height', img.height);
+        //draw circle on top
+        context.fillStyle = "rgba(93,179,199,0.20)";
+        context.beginPath();
+        context.arc(225,225,115,0,Math.PI*2,true);
+        context.closePath();
+        context.fill();
+        var new_url = canvas.toDataURL("image/png");
+        gapi.hangout.av.setAvatar(pid, new_url);
+        status_urls[pid][status] = new_url;
+        };
+
+
+        }
+
+        function doStepOut() {
+        //gapi.hangout.getEnabledParticipants(); // running the app
+        var all = gapi.hangout.getParticipants();
+        for (var i=0; i<all.length; i++) {
+        var p = all[i];
+        gapi.hangout.av.muteParticipantMicrophone(p.id, true);
+        gapi.hangout.av.setParticipantVisible(p.id, false)
+        //gapi.hangout.av.setParticipantAudible(pid, false);
+        //setLocalAudioNotificationsMute(true);
+        }
+        //gapi.hangout.av.setCameraMute(true);
+        gapi.hangout.av.setMicrophoneMute(true);
+        stepin.show();
+        stepout.hide();
+        //takeSnapshot()
+
+        //set shared state so others can hide me
+        gapi.hangout.data.setValue(gapi.hangout.getLocalParticipantId(), "1");
+        // show ourselfs as others will see us
+        showAvatarStatus(gapi.hangout.getLocalParticipantId(), 0);
+
+        }
+
+
+        function doStepIn() {
+        window.clearInterval(snapshotTimer);
+
+        //gapi.hangout.getEnabledParticipants(); // running the app
+
+        // We need to enable everyone except those who are stepped out
+        var all = gapi.hangout.getParticipants();
+        for (var i=0; i<all.length; i++) {
+        var p = all[i];
+        if (gapi.hangout.data.getValue(p.id)){
+        continue;
+        }
+        //else
+        gapi.hangout.av.muteParticipantMicrophone(p.id, false);
+        gapi.hangout.av.setParticipantVisible(p.id, true);
+        //gapi.hangout.av.setParticipantAudible(pid, false);
+        //setLocalAudioNotificationsMute(true);
+        }
+        //gapi.hangout.av.setCameraMute(false);
+        gapi.hangout.av.setMicrophoneMute(false);
+        gapi.hangout.av.setParticipantVisible(gapi.hangout.getLocalParticipantId(), true);
+        // get rid of your snapshot
+        gapi.hangout.av.clearAvatar(
+        gapi.hangout.getLocalParticipantId()
+        );
+
+        stepout.show();
+        stepin.hide();
+
+        //set shared state so others can show me again
+        gapi.hangout.data.clearValue(gapi.hangout.getLocalParticipantId());
+
+        }
+
+        function stateChanged(ev) {
+        for (var i=0; i++; i<ev.addedKeys.length) {
+        var pid = ev.addedKeys[i];
+        // user stepped out. mute them
+        gapi.hangout.av.muteParticipantMicrophone(pid, true);
+        gapi.hangout.av.setParticipantVisible(pid, false);
+        // Assume they are away until we get messages
+        showAvatarStatus(pid, 0);
+        }
+        for (var i=0; i++; i<ev.removedKeys.length) {
+        var pid = ev.removedKeys[i];
+        // user stepped in. unmute them
+        gapi.hangout.av.muteParticipantMicrophone(pid, false);
+        gapi.hangout.av.setParticipantVisible(pid, true);
+        gapi.hangout.av.clearAvatar(pid);
+        }
+        }
+
+        function messageReceived(ev) {
+        // updates on where user is looking
+        var sender = ev.senderId;
+        var image = ev.message;
+        if (image=='away') {
+        // they stepped out
+        //gapi.hangout.av.muteParticipantMicrophone(sender, true);
+        //gapi.hangout.av.setParticipantVisible(sender, false);
+        showAvatarStatus(sender, 0);
+
+        } else if (image='looking') {
+        //gapi.hangout.av.muteParticipantMicrophone(sender, true);
+        //gapi.hangout.av.setParticipantVisible(sender, false);
+        showAvatarStatus(sender, 1);
+        }
+        //    } else {
+        //        gapi.hangout.av.muteParticipantMicrophone(sender, false);
+        //        gapi.hangout.av.setParticipantVisible(sender, true);
+        //        gapi.hangout.av.clearAvatar(
+        //            sender
+        //        );
+        //    }
+
+        }
+
+        function faceChanged(data) {
+        if (gapi.hangout.data.getValue(gapi.hangout.getLocalParticipantId())!=1) {
+        // we are stepped in. stop setting face updates
+        return;
+        }
+        if (data.hasFace) {
+        $("#faceStatus").text("Looking");
+        gapi.hangout.data.sendMessage("looking");
+        showAvatarStatus(gapi.hangout.getLocalParticipantId(), 1);
+        } else {
+        $("#faceStatus").text("away");
+        gapi.hangout.data.sendMessage("away");
+        showAvatarStatus(gapi.hangout.getLocalParticipantId(), 0);
+        }
+        }
+
+
+        // Kicks off app and attaches all listeners.
+        function startApp() {
+
+
+        // add behavior to UI Controls
+        stepout.click(doStepOut);
+        stepin.click(doStepIn);
+
+        gapi.hangout.data.onMessageReceived.add(messageReceived);
+        gapi.hangout.data.onStateChanged.add(stateChanged);
+        gapi.hangout.av.effects.onFaceTrackingDataChanged.add(faceChanged);
+
+        }
+
+
+        function init() {
+        gapi.hangout.onApiReady.add(
+        function(eventObj) {
+        startApp();
+        });
+        }
+
+        // Add API listener immediately.  If you need an
+        // OAuth 2.0 access token, your startup will need to
+        // be different.
+        init();
+    </script>
