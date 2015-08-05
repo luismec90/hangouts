@@ -54,10 +54,12 @@
                     <select id="topic" class="form-control" required="1" name="quizTypeID">
                         <option value="">Seleccionar</option>
                         <option>Abierto (cualquier tema)</option>
-                        <option>Acerca de la UN</option>
+                        <option>Tecnolog&iacutea</option>
+                     {{--    <option>Acerca de la UN</option>
                         <option>C&aacute;lculo</option>
                         <option>F&iacute;sica</option>
                         <option>Estad&iacute;stica</option>
+                        --}}
                     </select>
                 </div>
             </div>

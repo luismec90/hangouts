@@ -13,7 +13,7 @@
 
 Route::post('/api/groups', 'WelcomeController@saveGroups');
 Route::get('/api/groups', 'WelcomeController@listGroups');
-Route::get('/api/channels/172', 'WelcomeController@channel');
+Route::get('/api/channels/177', 'WelcomeController@channel');
 
 Route::post('/contact', 'WelcomeController@contact');
 
